@@ -3,7 +3,6 @@
 var toNatural = require('./toNatural');
 
 function toTimeObj(date) {
-    console.log(date.getTime());
     if (isNaN(date.getTime())) {
         return {
             unix: null,

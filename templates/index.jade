@@ -1,0 +1,17 @@
+html
+    head
+        meta(name="viewport", content="width=device-width", initial-scale=1)
+        link(rel="stylesheet", href="/main.css")
+    body
+        h1 timestamp microservice
+        article
+            h3 Usage 
+            p.code 
+                a(href="#{host}/December%2015,%202015") #{host}/December%2015,%202015
+                
+            p.code
+                a(href="#{host}/1450137600") #{host}/1450137600
+        article
+            h3 Output
+            p.code { "unix": 1450137600, "natural": "December 15, 2015" }
+                

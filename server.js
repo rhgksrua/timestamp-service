@@ -1,10 +1,19 @@
 // server.js
 
 var express = require('express');
-var app = express();
+var morgan = require('morgan');
 var toTimeObj = require('./converter/toTimeObj');
 
+var app = express();
+
 var port = process.env.PORT || 8000;
+
+app.use(express.static(__dirname + '/public'));
+
+app.use(morgan('combined'));
+
+app.set('views', __dirname + '/templates');
+app.set('view engine', 'jade');
 
 app.use(function(err, req, res, next) {
     console.error(err.stack);
@@ -12,7 +21,8 @@ app.use(function(err, req, res, next) {
 })
 
 app.get('/', function(req, res) {
-    res.end('time stamp service');
+    var url = req.protocol + "://" + req.get('host');
+    res.render('index', {host: url});
 });
 
 app.get('/:time', function(req, res) {
