@@ -30,9 +30,9 @@ app.get('/:time', function(req, res) {
         timeInput = req.params.time;
         
     if (isNaN(+timeInput)) {
-        date = new Date(req.params.time);
+        date = new Date(timeInput);
     } else {
-        date = new Date(+req.params.time);
+        date = new Date(+timeInput);
     }
     
     res.json(toTimeObj(date));
